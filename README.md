@@ -37,11 +37,6 @@ def fetch_all_prices():
     for pair in PAIRS:
         PAIRS[pair] = get_price(pair)
 
-def check_arbitrage(initial_amount=1000):
-    fetch_all_prices()
-    sol_usdt = PAIRS["SOLUSDT"]
-    sol_eth = PAIRS["SOLETH"]
-    eth_usdt = PAIRS["ETHUSDT"]
 ```
 
 3\. **Core Logic Design**  
@@ -50,6 +45,15 @@ The core bot functionality is based on simulating a 3-step arbitrage cycle using
 * USDT → SOL: The bot checks how much SOL can be purchased with the initial capital.  
 * SOL → ETH: Converts the SOL received into ETH using the SOL/ETH pair.  
 * ETH → USDT: Finally, the ETH is sold back to USDT, completing the triangular loop.
+
+``` python
+  def check_arbitrage(initial_amount=1000):
+    fetch_all_prices()
+    sol_usdt = PAIRS["SOLUSDT"]
+    sol_eth = PAIRS["SOLETH"]
+    eth_usdt = PAIRS["ETHUSDT"]
+```
+
 
 At the end of the cycle, the bot compares the final USDT amount to the initial amount to determine:
 
