@@ -47,11 +47,33 @@ The core bot functionality is based on simulating a 3-step arbitrage cycle using
 * ETH → USDT: Finally, the ETH is sold back to USDT, completing the triangular loop.
 
 ``` python
-  def check_arbitrage(initial_amount=1000):
+ def check_arbitrage(initial_amount=1000):
     fetch_all_prices()
     sol_usdt = PAIRS["SOLUSDT"]
     sol_eth = PAIRS["SOLETH"]
     eth_usdt = PAIRS["ETHUSDT"]
+
+    # Simulate trades
+    sol = initial_amount / sol_usdt
+    eth = sol * sol_eth
+    final_usdt = eth * eth_usdt
+
+    profit = final_usdt - initial_amount
+    profit_percent = (profit / initial_amount) * 100
+    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    opportunity = "Yes" if profit > 0 else "No"
+
+    # Save to CSV
+    with open(CSV_FILE, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([timestamp, initial_amount, final_usdt, profit, profit_percent, opportunity])
+
+    print(f"\nTime: {timestamp}")
+    print(f"Initial USDT: {initial_amount}")
+
+    print(f"Final USDT: {final_usdt:.2f}")
+    print(f"Profit: {profit:.2f} USDT ({profit_percent:.4f}%)")
+    print("✅ Arbitrage Opportunity!" if profit > 0 else "❌ No Arbitrage")
 ```
 
 
