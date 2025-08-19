@@ -88,9 +88,29 @@ The logic is wrapped inside a function that runs in a loop every few seconds (de
 The testing phase used  live data via Binance's public API to simulate realistic and dynamic market conditions. This was crucial in identifying the frequency and nature of arbitrage opportunities in real time.  
 The bot was run for multiple sessions each with 5 seconds time laps  with varying durations and intervals. For each iteration:
 
+``` python
+# Initialize CSV with headers
+with open(CSV_FILE, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["Timestamp", "Initial_USDT", "Final_USDT", "Profit", "Profit_Percent", "Opportunity"])
+
+# Run bot N times
+for _ in range(10):  # Run 10 times
+    try:
+        check_arbitrage(1000)
+        time.sleep(5)   # Wait 5 seconds before next check
+    except Exception as e:
+        print("Error:", e)
+        time.sleep(5)
+
+# Plot results
+df = pd.read_csv(CSV_FILE)
+df["Timestamp"] = pd.to_datetime(df["Timestamp"])
 * Live prices were fetched.  
 * Simulated trades were computed.  
 * Results were logged into arbitrage\_resultsbot.csv.
+
+```
 
 This approach mimicked the latency and unpredictability of actual markets and helped in evaluating the stability of the strategy in fluctuating conditions. 
 
