@@ -14,13 +14,14 @@ The development environment was established using PyCharm IDE and Python 3.11+. 
 * datetime, time – To timestamp each transaction event.  
 * pandas, matplotlib – For data analysis and visualization.
 
-``` 
+``` python
 import requests
 import time
 import csv
 from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
+
 ```
 
 3\. **Core Logic Design**  
