@@ -1,7 +1,8 @@
 # Triangular-Arbitrage
  Development and Backtesting
 
-1\. Research  Overview  
+1\. Research  Overview
+
 As part of the development and testing phase of this research, the main goal was to build a working triangular arbitrage bot using real-time prices and historical data from Binance. This involved creating a script that could continuously monitor three trading pairs — SOL/USDT, SOL/ETH, and ETH/USDT — and look for opportunities where a profit could be made by cycling through these trades.  The bot was designed to simulate trading cycles, detect arbitrage opportunities, measure profitability, and log all results for post-analysis. This process included both live backtesting using scraped prices, which refers to the practice of automatically extracting price data from websites, often using automated scripts or bots, to monitor and analyze pricing information and data logging for offline visualization and reporting.
 
 2\. **Setup and Tools**
@@ -12,6 +13,14 @@ The development environment was established using PyCharm IDE and Python 3.11+. 
 * csv – To save results in a CSV file.  
 * datetime, time – To timestamp each transaction event.  
 * pandas, matplotlib – For data analysis and visualization.
+
+```python```
+import requests
+import time
+import csv
+from datetime import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 3\. **Core Logic Design**  
