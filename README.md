@@ -56,9 +56,11 @@ A second script, visualize\_arbitrage.py, was developed to analyze and plot the 
 These visuals provided tangible proof of the strategy's behavior over time, as well as valuable insight into when and why opportunities arise.
 
 **7\. Key Insights from Development and Testing**  
+
 The testing phase revealed several important insights about triangular arbitrage in cryptocurrency markets.  
 7.1. Arbitrage opportunities do exist, but they are often small and short-lived.  
 During the experiments, the bot detected moments where cycling through SOL → ETH → USDT (or the reverse) would yield a profit. However, these profits were usually very small, often fractions of a percent. This aligns with the nature of modern digital markets: because exchanges are highly competitive and connected, mispricings are corrected quickly, often within seconds. Thus, while opportunities are present, they require near-instant execution to be exploited effectively
 
 **7.2 Speed is absolutely critical**.  
+
 One of the clearest lessons was that execution speed can determine success or failure. Even a delay of two or three seconds between detecting and attempting to trade can completely erase the profit. By the time an arbitrage opportunity is identified, other traders—or bots with faster systems—may already have taken advantage of it, pushing the prices back into alignment. This highlights the importance of minimizing latency through better infrastructure 
