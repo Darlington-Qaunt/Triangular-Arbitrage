@@ -106,9 +106,6 @@ for _ in range(10):  # Run 10 times
 # Plot results
 df = pd.read_csv(CSV_FILE)
 df["Timestamp"] = pd.to_datetime(df["Timestamp"])
-* Live prices were fetched.  
-* Simulated trades were computed.  
-* Results were logged into arbitrage\_resultsbot.csv.
 
 ```
 
