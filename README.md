@@ -13,5 +13,5 @@
 
 - Snake
 - Dog
--  Kite
--   Cat       
+ - Kite
+  - Cat       
