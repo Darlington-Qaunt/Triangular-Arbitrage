@@ -22,6 +22,26 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# API endpoint
+BASE_URL = "https://api.binance.com"
+PAIRS = {"SOLUSDT": None, "SOLETH": None, "ETHUSDT": None}
+CSV_FILE = "arbitrage_results.csv"
+
+def get_price(symbol):
+    url = f"{BASE_URL}/api/v3/ticker/price"
+    response = requests.get(url, params={"symbol": symbol})
+    data = response.json()
+    return float(data["price"])
+
+def fetch_all_prices():
+    for pair in PAIRS:
+        PAIRS[pair] = get_price(pair)
+
+def check_arbitrage(initial_amount=1000):
+    fetch_all_prices()
+    sol_usdt = PAIRS["SOLUSDT"]
+    sol_eth = PAIRS["SOLETH"]
+    eth_usdt = PAIRS["ETHUSDT"]
 ```
 
 3\. **Core Logic Design**  
