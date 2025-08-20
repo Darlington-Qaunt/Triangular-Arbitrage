@@ -124,6 +124,15 @@ A second script, visualize\_arbitrage.py, was developed to analyze and plot the 
 * Cmulative Profit \- Total performance over the session.  
 * Initial vs Final Capital \- Comparison of starting vs ending USDT.  
 *  Opportunity Frequency \- Number of profitable trades vs. missed opportunities.
+``` python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load previously saved results
+df = pd.read_csv("arbitrage_results.csv")
+
+```
 
 
 These visuals provided tangible proof of the strategy's behavior over time, as well as valuable insight into when and why opportunities arise.
