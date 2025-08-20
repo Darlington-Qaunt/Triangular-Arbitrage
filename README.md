@@ -88,6 +88,10 @@ The logic is wrapped inside a function that runs in a loop every few seconds (de
 The testing phase used  live data via Binance's public API to simulate realistic and dynamic market conditions. This was crucial in identifying the frequency and nature of arbitrage opportunities in real time.  
 The bot was run for multiple sessions each with 5 seconds time laps  with varying durations and intervals. For each iteration:
 
+*Live prices were fetched.
+*Simulated trades were computed.
+*Results were logged into arbitrage_results.csv
+
 ``` python
 # Initialize CSV with headers
 with open(CSV_FILE, mode='w', newline='') as file:
@@ -115,6 +119,10 @@ This approach mimicked the latency and unpredictability of actual markets and he
 
 While the bot  doesn’t execute real trades, it includes provisions to simulate fees (e.g., 0.1% per trade). Although Binance offers discounted fees for certain token holdings or VIP users, the default assumption in our simulation was 0.1% fee per leg, applied implicitly in the backtest analysis phase.  
 This allows for more conservative estimations of profitability and helps avoid overfitting the results to ideal condition
+
+``` python
+TRADING_FEE = 0.001  # 0.1% per trade
+```
 
 6\. **Visualization and Results Interpretation**  
 A second script, visualize\_arbitrage.py, was developed to analyze and plot the results of each session. Using the stored CSV file, we generated the following key plots:
@@ -145,13 +153,12 @@ plt.show()
 
 ```
 
-
 These visuals provided tangible proof of the strategy's behavior over time, as well as valuable insight into when and why opportunities arise.
 
 **7\. Key Insights from Development and Testing**  
 
 The testing phase revealed several important insights about triangular arbitrage in cryptocurrency markets.  
-7.1. Arbitrage opportunities do exist, but they are often small and short-lived.  
+**7.1. Arbitrage opportunities do exist, but they are often small and short-lived.  
 During the experiments, the bot detected moments where cycling through SOL → ETH → USDT (or the reverse) would yield a profit. However, these profits were usually very small, often fractions of a percent. This aligns with the nature of modern digital markets: because exchanges are highly competitive and connected, mispricings are corrected quickly, often within seconds. Thus, while opportunities are present, they require near-instant execution to be exploited effectively
 
 **7.2 Speed is absolutely critical**.  
