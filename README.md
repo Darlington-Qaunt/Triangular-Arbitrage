@@ -125,7 +125,7 @@ TRADING_FEE = 0.001  # 0.1% per trade
 ```
 
 6\. **Visualization and Results Interpretation**  
-A second script, visualize\_arbitrage.py, was developed to analyze and plot the results of each session. Using the stored CSV file, we generated the following key plots:
+A second script, visualize\_arbitrage.py, was developed to analyze and plot the results of each session. Using the stored CSV file, I generated the following key plots:
 
 * Profit Over Time \- Visual trend of profit/loss across time intervals.  
 * Profit Histogram \- Distribution of profitable vs. unprofitable opportunities.  
