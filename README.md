@@ -127,8 +127,7 @@ TRADING_FEE = 0.001  # 0.1% per trade
 6\. **Visualization and Results Interpretation**  
 A second script, visualize\_arbitrage.py, was developed to analyze and plot the results of each session. Using the stored CSV file, I generated the following key plots:
 
-* Profit Over Time \- Visual trend of profit/loss across time intervals.  
-* Profit Histogram \- Distribution of profitable vs. unprofitable opportunities.  
+* Profit Over Time \- Visual trend of profit/loss across time intervals.    
 * Cmulative Profit \- Total performance over the session.  
 * Initial vs Final Capital \- Comparison of starting vs ending USDT.  
 *  Opportunity Frequency \- Number of profitable trades vs. missed opportunities.
