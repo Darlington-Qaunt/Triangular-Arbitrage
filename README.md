@@ -117,7 +117,7 @@ This approach mimicked the latency and unpredictability of actual markets and he
 
 5\. **Trading Fees and Practical Considerations**
 
-While the bot  doesn’t execute real trades, it includes provisions to simulate fees (e.g., 0.1% per trade). Although Binance offers discounted fees for certain token holdings or VIP users, the default assumption in our simulation was 0.1% fee per leg, applied implicitly in the backtest analysis phase.  
+While the bot  doesn’t execute real trades, it includes provisions to simulate fees (e.g., 0.1% per trade). Although Binance offers discounted fees for certain token holdings or VIP users, the default assumption in the  simulation was 0.1% fee per leg, applied implicitly in the backtest analysis phase.  
 This allows for more conservative estimations of profitability and helps avoid overfitting the results to ideal condition
 
 ``` python
